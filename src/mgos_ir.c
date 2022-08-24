@@ -55,7 +55,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
     {
       // report code
       // NO LOG or printf in ISR service routine, or in the handler
-      // LOG(LL_DEBUG, ("IRRECV @ %d: %08X", pin, obj->code.dword));
+      printf("IRRECV @ %d: %08X", pin, obj->code.dword));
       
 //       a = obj->user_data;
       if (obj->handler) {
