@@ -12,7 +12,6 @@ int a = 0;
 static IRAM void irrecv_nec_handler(int pin, void *arg)
 {
   struct mgos_irrecv_nec_s *obj = (struct mgos_irrecv_nec_s *)arg;
-  a ++;
   // get microseconds
   uint32_t t = 1000000 * mgos_uptime();
   // 0-1 transition?
@@ -57,6 +56,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
       // LOG(LL_DEBUG, ("IRRECV @ %d: %08X", pin, obj->code.dword));
       if (obj->handler) {
         obj->handler(obj->code.dword, obj->user_data);
+        a = obj->code.dword;
       }
     }
   }
