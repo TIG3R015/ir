@@ -16,7 +16,6 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
   uint32_t t = 1000000 * mgos_uptime();
   // 0-1 transition?
   if (mgos_gpio_read(pin)) {
-    printf("%d \n",mgos_gpio_read(pin));
     // start counter
     obj->t = t;
     return;
