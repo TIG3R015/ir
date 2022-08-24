@@ -65,7 +65,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
       // NO LOG or printf in ISR service routine, or in the handler
       // LOG(LL_DEBUG, ("IRRECV @ %d: %08X", pin, obj->code.dword));
       if (obj->handler) {
-        obj->handler(obj->code.dword, obj->user_data);
+        obj->handler(obj->code.dword);
       }
     }
   }
@@ -83,7 +83,7 @@ struct mgos_irrecv_nec_s *mgos_irrecv_nec_create(int pin, void (*handler)(int, v
   struct mgos_irrecv_nec_s *obj = calloc(1, sizeof(*obj));
   if (obj == NULL) return NULL;
   obj->pin = pin;
-  obj->handler =  (void *)handler;
+  obj->handler =  handler;
   obj->user_data = user_data;
   obj->bit = 0;
   obj->t = 0;
