@@ -39,9 +39,10 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
   // repeat
   } else {
     // FIXME: just signal if pulse circa 2250?
-    b =  obj->code.dword;
-    a ++;
   }
+  
+   b =  obj->code.dword;
+    a ++;
   // sequence end?
   if (obj->bit == 32) {
     obj->bit = 0; // NB: do not auto-repeat
@@ -68,7 +69,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
 void mgos_print_a(void *arg)
 {
   printf("a  %d \n", a);
-  printf("b  %x \n", b);
+  printf("b  %X \n", b);
 }
 
 
