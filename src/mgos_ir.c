@@ -41,7 +41,15 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
     // FIXME: just signal if pulse circa 2250?
   }
   
+  
+  
   b = obj->code.dword;
+   if (obj->handler) {
+        obj->handler(obj->code.dword, obj->user_data);
+      }
+  
+  
+  
   // sequence end?
   if (obj->bit == 32) {
     obj->bit = 0; // NB: do not auto-repeat
