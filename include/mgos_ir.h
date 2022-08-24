@@ -37,6 +37,8 @@ struct mgos_irrecv_nec_s *mgos_irrecv_nec_create(
   void (*cb)(int, void *),
   void *userdata
 );
+  
+void mgos_print_a(void *arg);
 
 /*
  * Destroy an object instance of IR receiver for NEC protocol.
