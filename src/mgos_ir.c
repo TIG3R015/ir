@@ -46,26 +46,25 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
   if (obj->bit == 32) {
     obj->bit = 0; // NB: do not auto-repeat
     // CRC ok?
-// #if MGOS_IRRECV_NEC_CHECK_ADDR_CRC
-//     if ((obj->code.byte[1] ^ obj->code.byte[0]) == 0xFF &&
-//         (obj->code.byte[3] ^ obj->code.byte[2]) == 0xFF)
-// #elif MGOS_IRRECV_NEC_CHECK_CODE_CRC
-//     if ((obj->code.byte[1] ^ obj->code.byte[0]) == 0xFF)
-// #endif
-//     {
+#if MGOS_IRRECV_NEC_CHECK_ADDR_CRC
+    if ((obj->code.byte[1] ^ obj->code.byte[0]) == 0xFF &&
+        (obj->code.byte[3] ^ obj->code.byte[2]) == 0xFF)
+#elif MGOS_IRRECV_NEC_CHECK_CODE_CRC
+    if ((obj->code.byte[1] ^ obj->code.byte[0]) == 0xFF)
+#endif
+    {
       // report code
       // NO LOG or printf in ISR service routine, or in the handler
       // LOG(LL_DEBUG, ("IRRECV @ %d: %08X", pin, obj->code.dword));
       if (obj->handler) {
         obj->handler(obj->code.dword, obj->user_data);
-//       }
-//     }
+      }
+    }
   }
 }
 
 void mgos_print_a(void *arg)
 {
-//   printf("a  %d \n", a);
   printf("b  %X \n", b);
 }
 
