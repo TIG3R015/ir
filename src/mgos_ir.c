@@ -45,7 +45,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
   
   b = obj->code.dword;
    if (obj->handler != NULL) {
-        obj->handler(obj->code.dword, NULL);
+        obj->handler(obj->code.dword, obj->user_data);
       }
   
   
@@ -83,7 +83,7 @@ struct mgos_irrecv_nec_s *mgos_irrecv_nec_create(int pin, void (*handler)(int, v
   struct mgos_irrecv_nec_s *obj = calloc(1, sizeof(*obj));
   if (obj == NULL) return NULL;
   obj->pin = pin;
-  obj->handler = handler;
+  obj->handler =  (void *)handler;
   obj->user_data = user_data;
   obj->bit = 0;
   obj->t = 0;
