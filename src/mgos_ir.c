@@ -81,7 +81,7 @@ struct mgos_irrecv_nec_s *mgos_irrecv_nec_create(int pin, void (*handler)(int, v
   obj->pin = pin;
   obj->handler = handler;
   obj->user_data = user_data;
-  obj->bit = 0;
+  obj->bit = 32;
   obj->t = 0;
   if (
     !mgos_gpio_set_mode(pin, MGOS_GPIO_MODE_INPUT) ||
