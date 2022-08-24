@@ -45,7 +45,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
   
   b = obj->code.dword;
    if (obj->handler != NULL) {
-        obj->handler(obj->code.dword, obj->user_data);
+        obj->handler(obj->code.dword, NULL);
       }
   
   
