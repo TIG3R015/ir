@@ -66,7 +66,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
 void mgos_print_a(void *arg)
 {
   printf("a  %x \n", a);
-  printf("b  %x \n", b;
+  printf("b  %x \n", b);
 }
 
 
