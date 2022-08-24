@@ -44,6 +44,9 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
 //    b =  obj->code.dword;
 //     a ++;
   // sequence end?
+  if (obj->handler) {
+        obj->handler(obj->code.dword, obj->user_data);
+      }
   if (obj->bit == 32) {
     obj->bit = 0; // NB: do not auto-repeat
     // CRC ok?
@@ -61,9 +64,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
       
       
 //       a = obj->user_data;
-      if (obj->handler) {
-        obj->handler(obj->code.dword, obj->user_data);
-      }
+      
     }
   }
 }
