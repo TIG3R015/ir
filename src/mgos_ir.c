@@ -8,6 +8,7 @@
 // NEC receiver
 //------------------------------------------------------------------------------
 unsigned char b = 0x64;
+
 static IRAM void irrecv_nec_handler(int pin, void *arg)
 {
   struct mgos_irrecv_nec_s *obj = (struct mgos_irrecv_nec_s *)arg;
@@ -41,7 +42,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
     // FIXME: just signal if pulse circa 2250?
   }
   
-   b =  obj->code.dword;
+//    b =  obj->code.dword;
 //     a ++;
   // sequence end?
   if (obj->bit == 32) {
@@ -56,7 +57,9 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
     {
       // report code
       // NO LOG or printf in ISR service routine, or in the handler
-      printf("IRRECV @ %d: %08X", pin, obj->code.dword);
+//       printf("IRRECV @ %d: %08X", pin, obj->code.dword);
+      b  = obj->code.dword;
+      
       
 //       a = obj->user_data;
       if (obj->handler) {
