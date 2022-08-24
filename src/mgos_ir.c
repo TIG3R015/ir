@@ -66,8 +66,7 @@ static void mgos_print_a(void *arg)
   printf("%d \n", a);
 }
 
-// y lagya h mene
-mgos_set_timer(1000, MGOS_TIMER_REPEAT, mgos_print_a, NULL);
+
 
 struct mgos_irrecv_nec_s *mgos_irrecv_nec_create(int pin, void (*handler)(int, void *), void *user_data)
 {
