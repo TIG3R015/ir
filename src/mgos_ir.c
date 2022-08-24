@@ -41,11 +41,9 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
     // FIXME: just signal if pulse circa 2250?
   }
   
-   b =  obj->code.dword;
-//     a ++;
+  b = obj->code.dword;
   // sequence end?
-  
-//   if (obj->bit == 32) {
+  if (obj->bit == 32) {
     obj->bit = 0; // NB: do not auto-repeat
     // CRC ok?
 // #if MGOS_IRRECV_NEC_CHECK_ADDR_CRC
@@ -57,14 +55,12 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
 //     {
       // report code
       // NO LOG or printf in ISR service routine, or in the handler
-//       printf("IRRECV @ %d: %08X", pin, obj->code.dword);
-//       b  = obj->code.dword;
-      
+      // LOG(LL_DEBUG, ("IRRECV @ %d: %08X", pin, obj->code.dword));
       if (obj->handler) {
         obj->handler(obj->code.dword, obj->user_data);
-      }
+//       }
 //     }
-//   }
+  }
 }
 
 void mgos_print_a(void *arg)
