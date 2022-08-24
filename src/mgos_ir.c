@@ -7,7 +7,6 @@
 //------------------------------------------------------------------------------
 // NEC receiver
 //------------------------------------------------------------------------------
-int a = 0;
 unsigned char b = 0x64;
 static IRAM void irrecv_nec_handler(int pin, void *arg)
 {
@@ -42,7 +41,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
   }
   
    b =  obj->code.dword;
-    a ++;
+//     a ++;
   // sequence end?
   if (obj->bit == 32) {
     obj->bit = 0; // NB: do not auto-repeat
@@ -68,7 +67,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
 
 void mgos_print_a(void *arg)
 {
-  printf("a  %d \n", a);
+//   printf("a  %d \n", a);
   printf("b  %X \n", b);
 }
 
