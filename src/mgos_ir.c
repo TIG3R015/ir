@@ -7,7 +7,7 @@
 //------------------------------------------------------------------------------
 // NEC receiver
 //------------------------------------------------------------------------------
-unsigned char b = 0x64;
+unsigned char ir_code = 0x64;
 
 static IRAM void irrecv_nec_handler(int pin, void *arg)
 {
@@ -40,7 +40,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
   } else {
     // FIXME: just signal if pulse circa 2250?
   }
-  b = obj->code.dword;
+  ir_code = obj->code.dword;
   
   // sequence end?
   if (obj->bit == 32) {
@@ -65,7 +65,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
 
 void mgos_print_code(void *arg)
 {
-  printf("b  %X \n", b);
+  printf("IR:  %X \n", ir_code);
 }
 
 
