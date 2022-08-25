@@ -7,7 +7,7 @@
 //------------------------------------------------------------------------------
 // NEC receiver
 //------------------------------------------------------------------------------
-unsigned char ir_code = 0x64;
+unsigned int ir_code = 0x64;
 
 static IRAM void irrecv_nec_handler(int pin, void *arg)
 {
@@ -63,7 +63,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
   }
 }
 
-char * mgos_print_ir_code()
+int mgos_print_ir_code()
 {
 //   printf("IR:  %X \n", ir_code);
   return ir_code;
