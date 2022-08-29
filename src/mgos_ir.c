@@ -64,7 +64,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
   }
 }
 
-unsigned char* mgos_print_ir_code()
+unsigned char mgos_print_ir_code()
 {
 //   printf("IR:  %X \n", ir_code);
   return  ir_code;
