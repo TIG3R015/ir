@@ -7,7 +7,7 @@
 //------------------------------------------------------------------------------
 // NEC receiver
 //------------------------------------------------------------------------------
-char ir_code[] = '';
+usigned char ir_code = 0xA;
 
 static IRAM void irrecv_nec_handler(int pin, void *arg)
 {
@@ -57,14 +57,15 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
       // NO LOG or printf in ISR service routine, or in the handler
       // LOG(LL_DEBUG, ("IRRECV @ %d: %08X", pin, obj->code.dword));
       ir_code = obj->code.dword;
-//       if (obj->handler) {
+      if (obj->handler) {
+        obj->handler(obj->code.dword, obj->code.dword);
 //         obj->handler(obj->code.dword, obj->user_data);
-//       }
+      }
     }
   }
 }
 
-char* mgos_print_ir_code()
+char mgos_print_ir_code()
 {
 //   printf("IR:  %X \n", ir_code);
   return  ir_code;
