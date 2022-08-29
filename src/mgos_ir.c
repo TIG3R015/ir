@@ -7,7 +7,7 @@
 //------------------------------------------------------------------------------
 // NEC receiver
 //------------------------------------------------------------------------------
-unsigned int ir_code = NULL;
+unsigned int ir_code = 0;
 
 static IRAM void irrecv_nec_handler(int pin, void *arg)
 {
