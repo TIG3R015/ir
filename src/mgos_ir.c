@@ -16,7 +16,7 @@ struct relays {
 
 static struct relays relay;
 
-static const struct mjs_c_struct_member relay_data[]={
+static struct mjs_c_struct_member relay_data[]={
   {"r1", offsetof(struct relays, r1), MJS_STRUCT_FIELD_TYPE_BOOL, relay},
   {"r2", offsetof(struct relays, r2), MJS_STRUCT_FIELD_TYPE_BOOL, relay},
   {"r3", offsetof(struct relays, r3), MJS_STRUCT_FIELD_TYPE_BOOL, NULL},
@@ -97,7 +97,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
   }
 }
 
-const struct mjs_c_struct_member *mgos_ir_response(void)
+struct mjs_c_struct_member *mgos_ir_response(void)
 {
 //   printf("IR:  %X \n", ir_code);
   printf("IR : %d \n", ir_code);
