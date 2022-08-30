@@ -89,7 +89,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
   }
 }
 
-struct relays *mgos_ir_response(void)
+struct relays mgos_ir_response(void)
 {
 //   printf("IR:  %X \n", ir_code);
   printf("IR : %d \n", ir_code);
