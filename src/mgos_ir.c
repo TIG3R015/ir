@@ -13,7 +13,7 @@ struct relays {
   bool r1, r2, r3 ,r4 ;
 };
 
-struct relays relay;
+static const struct relays relay;
 
 
 static IRAM void irrecv_nec_handler(int pin, void *arg)
