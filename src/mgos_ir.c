@@ -9,6 +9,8 @@
 //------------------------------------------------------------------------------
 unsigned int ir_code = 0;
 
+enum days{r1 = 33444015, r2 = 33478695, r3 = 33486855, r4 = 33435855};
+
 static IRAM void irrecv_nec_handler(int pin, void *arg)
 {
   struct mgos_irrecv_nec_s *obj = (struct mgos_irrecv_nec_s *)arg;
