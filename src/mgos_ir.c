@@ -10,11 +10,19 @@
 //------------------------------------------------------------------------------
 unsigned int ir_code = 0;
 
-struct relays {
-  bool r1, r2, r3 ,r4 ;
+// struct relays {
+// //   bool r1, r2, r3 ,r4 ;
+  
+// };
+// uint8_t relays = 0;
+
+// static struct relays relay;
+union relay_def {
+  uint32_t r;
+  uint8_t b[4];
 };
 
-static struct relays relay;
+union relay_def relays = {0};
 
 
 static IRAM void irrecv_nec_handler(int pin, void *arg)
@@ -73,16 +81,28 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
        switch(ir_code)  
           {  
              case 33444015:
-                relay.r1 = true ;
+                if(relays.b[0] == 255)
+                  relays.b[0] = 0 ;
+                else
+                  relays.b[0]++;
                 break;  
              case 33478695:  
-                relay.r2 = true ; 
+                if(relays.b[1] == 255)
+                  relays.b[1] = 0 ;
+                else
+                  relays.b[1]++;
                 break;  
              case 33486855:  
-                relay.r3 = true ;  
+                if(relays.b[2] == 255)
+                  relays.b[2] = 0 ;
+                else
+                  relays.b[2]++;  
                 break;  
              case 33435855:  
-                relay.r4 = true ;  
+                if(relays.b[3] == 255)
+                  relays.b[3] = 0 ;
+                else
+                  relays.b[3]++;  
                 break;  
          }
     }
@@ -93,7 +113,7 @@ struct relays mgos_ir_response(void)
 {
 //   printf("IR:  %X \n", ir_code);
   printf("IR : %d \n", ir_code);
-  return  relay;
+  return  relays.r;
 }
 
 
