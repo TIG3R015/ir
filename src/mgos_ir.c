@@ -16,10 +16,10 @@ struct relays {
 static struct relays relay;
 
 static const struct mjs_c_struct_member relay_data[]={
-  {"r1", offsetof(relay, r1), MJS_STRUCT_FIELD_TYPE_BOOL, NULL},
-  {"r2", offsetof(relay, r2), MJS_STRUCT_FIELD_TYPE_BOOL, NULL},
-  {"r3", offsetof(relay, r3), MJS_STRUCT_FIELD_TYPE_BOOL, NULL},
-  {"r3", offsetof(relay, r4), MJS_STRUCT_FIELD_TYPE_BOOL, NULL},
+  {"r1", offsetof(struct relays, r1), MJS_STRUCT_FIELD_TYPE_BOOL, relay.r1},
+  {"r2", offsetof(struct relays, r2), MJS_STRUCT_FIELD_TYPE_BOOL, relay.r2},
+  {"r3", offsetof(struct relays, r3), MJS_STRUCT_FIELD_TYPE_BOOL, relay.r3},
+  {"r4", offsetof(struct relays, r4), MJS_STRUCT_FIELD_TYPE_BOOL, relay.r4},
   {NULL, 0, MJS_STRUCT_FIELD_TYPE_INVALID, NULL},
 };
 
