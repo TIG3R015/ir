@@ -2,6 +2,7 @@
 #include "mgos_pwm.h"
 #include "mgos_ir.h"
 #include "mgos_time.h"
+#include "mjs.h"
 
 
 //------------------------------------------------------------------------------
