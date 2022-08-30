@@ -9,7 +9,12 @@
 //------------------------------------------------------------------------------
 unsigned int ir_code = 0;
 
-enum days{r1 = 33444015, r2 = 33478695, r3 = 33486855, r4 = 33435855};
+struct relays {
+  bool r1, r2, r3 ,r4 ;
+};
+
+struct relays relay;
+
 
 static IRAM void irrecv_nec_handler(int pin, void *arg)
 {
@@ -63,14 +68,30 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
 //         obj->handler(obj->code.dword, obj->code.dword);
 //         obj->handler(obj->code.dword, obj->user_data);
 //       }
+      
+       switch(ir_code)  
+          {  
+             case 33444015:
+                relay.r1 = true ;
+                break;  
+             case 33478695:  
+                relay.r2 = true ; 
+                break;  
+             case 33486855:  
+                relay.r3 = true ;  
+                break;  
+             case 33435855:  
+                relay.r4 = true ;  
+                break;  
+         }
     }
   }
 }
 
-int mgos_ir_response()
+struct relays mgos_ir_response()
 {
-//   printf("IR:  %X \n", ir_code);
-  return  ir_code;
+//   printf("IR:  %X \n", ir_code);   
+  return  relay;
 }
 
 
