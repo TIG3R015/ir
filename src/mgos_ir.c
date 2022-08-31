@@ -25,7 +25,7 @@ union relay_def {
 union relay_def relays = {0};
 
 
-void irrecv_nec_handler(int pin, void *arg)
+static IRAM void irrecv_nec_handler(int pin, void *arg)
 {
   struct mgos_irrecv_nec_s *obj = (struct mgos_irrecv_nec_s *)arg;
   // get microseconds
