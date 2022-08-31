@@ -76,7 +76,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
       if (obj->handler) {
            ir_code = obj->code.dword;
 //         obj->handler(obj->code.dword, obj->code.dword);
-//            obj->handler(obj->code.dword, obj->user_data);
+           obj->handler(ir_code, obj->user_data);
       }
       
        switch(ir_code)  
