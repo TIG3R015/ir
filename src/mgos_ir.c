@@ -112,7 +112,10 @@ unsigned int mgos_ir_response(void)
 {
 //   printf("IR:  %X \n", ir_code);
   printf("IR : %d \n", ir_code);
-  return  relays.r;
+  char hex_string[20];
+  sprintf(hex_string, "%X", ir_code);
+//   return  relays.r;
+  return hex_string;
 }
 
 
