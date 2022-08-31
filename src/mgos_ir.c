@@ -3,6 +3,7 @@
 #include "mgos_ir.h"
 #include "mgos_time.h"
 #include "mjs.h"
+#include "mgos_ir.h"
 
 
 //------------------------------------------------------------------------------
@@ -17,12 +18,12 @@ unsigned int ir_code = 0;
 // uint8_t relays = 0;
 
 // static struct relays relay;
-union relay_def {
-  uint32_t r;
-  uint8_t b[4];
-};
+// union relay_def {
+//   uint32_t r;
+//   uint8_t b[4];
+// };
 
-union relay_def relays = {0};
+// union relay_def relays = {0};
 
 
 static IRAM void irrecv_nec_handler(int pin, void *arg)
