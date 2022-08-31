@@ -135,7 +135,7 @@ struct mgos_irrecv_nec_s *mgos_irrecv_nec_create(int pin, void (*handler)(int, v
     mgos_irrecv_nec_close(obj);
     return NULL;
   }
-  return obj-user_data;
+  return obj->user_data;
 }
 
 void mgos_irrecv_nec_close(struct mgos_irrecv_nec_s *obj)
