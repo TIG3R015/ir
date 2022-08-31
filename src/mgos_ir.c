@@ -76,7 +76,7 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
       if (obj->handler) {
            ir_code = obj->code.dword;
 //         obj->handler(obj->code.dword, obj->code.dword);
-           obj->handler(ir_code, obj->user_data);
+           obj->handler(ir_code);
       }
       
        switch(ir_code)  
@@ -119,7 +119,7 @@ unsigned int mgos_ir_response(void)
 
 
 
-struct mgos_irrecv_nec_s *mgos_irrecv_nec_create(int pin, void (*handler)(int, void *), void *user_data)
+struct mgos_irrecv_nec_s *mgos_irrecv_nec_create(int pin, void (*handler)(int), void *user_data)
 {
   struct mgos_irrecv_nec_s *obj = calloc(1, sizeof(*obj));
   if (obj == NULL) return NULL;
