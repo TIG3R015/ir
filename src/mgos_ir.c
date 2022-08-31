@@ -3,7 +3,6 @@
 #include "mgos_ir.h"
 #include "mgos_time.h"
 #include "mjs.h"
-#include "mgos_ir.h"
 
 
 //------------------------------------------------------------------------------
