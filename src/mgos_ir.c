@@ -119,7 +119,7 @@ unsigned int mgos_ir_response(void)
 
 
 
-struct mgos_irrecv_nec_s *mgos_irrecv_nec_create(int pin, void (*handler)(int, void *user_data), void *user_data)
+struct mgos_irrecv_nec_s *mgos_irrecv_nec_create(int pin, void (*handler)(int, void *), void *user_data)
 {
   struct mgos_irrecv_nec_s *obj = calloc(1, sizeof(*obj));
   if (obj == NULL) return NULL;
