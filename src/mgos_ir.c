@@ -22,7 +22,7 @@ unsigned int ir_code = 0;
 //   uint8_t b[4];
 // };
 
-// union relay_def relays = {0};
+union relay_def relays = {0};
 
 
 static IRAM void irrecv_nec_handler(int pin, void *arg)
