@@ -111,10 +111,10 @@ static IRAM void irrecv_nec_handler(int pin, void *arg)
 unsigned int mgos_ir_response(void)
 {
 //   printf("IR:  %X \n", ir_code);
-  printf("IR : %d \n", ir_code);
-  char hex_string[20];
-  sprintf(hex_string, "%X", ir_code);
-  printf("%s \n", hex_string);
+//   printf("IR : %d \n", ir_code);
+//   char hex_string[20];
+//   sprintf(hex_string, "%X", ir_code);
+//   printf("%s \n", hex_string);
   return  relays.r;
 //   return hex_string;
 }
