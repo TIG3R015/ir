@@ -18,7 +18,7 @@ extern "C" {
 
 struct mgos_irrecv_nec_s {
   int pin;
-  void (*handler)(int);
+  void (*handler)(int, void*);
   void *user_data;
   union {
     uint8_t byte[4];
