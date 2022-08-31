@@ -16,6 +16,13 @@ extern "C" {
 // NEC receiver
 //------------------------------------------------------------------------------
 
+union relay_def {
+  uint32_t r;
+  uint8_t b[4];
+};
+
+union relay_def relays = {0};
+  
 struct mgos_irrecv_nec_s {
   int pin;
   void (*handler)(int, void *);
